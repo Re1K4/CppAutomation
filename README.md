@@ -1,6 +1,6 @@
 # CppGameBot
 
-Template for a fast gamebot program in C++ using OpenCV library
+Template for a fast gamebot program in C++ using OpenCV library.
 
 
 ## Author
@@ -11,7 +11,7 @@ Template for a fast gamebot program in C++ using OpenCV library
 [MIT](https://opensource.org/licenses/mit-license.php)
 ## Related
 
-The one and only custom filter driver for keyboard and mouse emulation
+Very nice custom filter driver for keyboard and mouse emulation.
 
 [Interception](https://github.com/oblitum/Interception)
 
