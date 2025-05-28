@@ -3,18 +3,6 @@
 Template for a fast gamebot program in C++ using OpenCV library.
 
 
-## Author
-[![Twitter: ReekerZrZr](https://img.shields.io/twitter/follow/ReekerZrZr?style=social)](https://x.com/ReekerZrZr)
-
-## Licence
-
-[MIT](https://opensource.org/licenses/mit-license.php)
-## Related
-
-Very nice custom filter driver for keyboard and mouse emulation.
-
-[Interception](https://github.com/oblitum/Interception)
-
 ## Visual Studio Setup
 
 ### Building with OpenCV Library
@@ -113,3 +101,6 @@ To use keyboard and mouse emulation via Interception:
 
 - Add the Interception DLL to your project.  
   In Visual Studio, right-click the DLL in Solution Explorer, select **Properties > General > Item Type**, and choose `"Copy if newer"` (or `"Copy"` depending on your Visual Studio version) to ensure the DLL is copied to your output directory on build.
+
+## Author
+[![Twitter: ReekerZrZr](https://img.shields.io/twitter/follow/ReekerZrZr?style=social)](https://x.com/ReekerZrZr)
