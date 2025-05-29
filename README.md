@@ -1,106 +1,90 @@
-# CppGameBot
+# Name 
+CppGameBot
 
-Template for a fast gamebot program in C++ using OpenCV library.
+## Overview
+C++ template for gamebot using OpenCV library.
+It is very fast and can automate most games.
 
+## Requirement
+OpenCV - [OpenCV Releases](https://opencv.org/releases/)
 
-## Visual Studio Setup
+Interception - [Interception](https://github.com/oblitum/Interception)
 
-### Building with OpenCV Library
+## Usage
+This is a template, and the process must be written and built in the while loop in main.cpp according to the process you wish to automate.
 
-To build this project with OpenCV support, follow these steps:
+## Build setup using Visual Studio
+
+### OpenCV configuration
 
 1. **Install OpenCV:**  
-   Download and install the pre-built OpenCV binaries for Windows, or build from source as needed.  
-   [OpenCV Releases](https://opencv.org/releases/)
+   Download and install [OpenCV](https://opencv.org/releases/) (for Windows).
 
-2. **Configure Include and Library Directories in Visual Studio:**  
+2. **Configure Visual Studio:**  
    - Open your project in Visual Studio.
-   - Go to **Project > Properties > VC++ Directories**.
-     - **Include Directories:** Add the path to your `opencv\build\include` folder.
-     - **Library Directories:** Add the path to your `opencv\build\x64\vcXX\lib` folder (replace `vcXX` with your Visual Studio version, e.g., `vc16`).
-   - In **Linker > Input > Additional Dependencies**, add the required OpenCV `.lib` files (e.g., `opencv_worldXXX.lib`).
+   - Go to **Project > Properties > C/C++ > General**.
+     - **Additional Include Directories:** Add the path to your `opencv\build\include` folder.
+      ```
+      C:\Program Files\opencv\build\x64\vc16\bin
+      ```
+   - Go to **Linker > General**.
+     - **Additional library directory:** Add the path to your `opencv\build\x64\vcXX\lib` folder (replace `vcXX` with your Visual Studio version, e.g., `vc16`).
+      ```
+      C:\Program Files\opencv\build\x64\vc16\lib
+      ```
+   - Go to **Linker > Input**.
+     - **Additional dependency file:** 
+        - For Debug build:
+        ```
+        opencv_world4100d.lib
+        ```
+        - For Release build:
+        ```
+        opencv_world4100.lib
+        ```   
 
-3. **Add OpenCV DLLs to Path:**  
-   - Ensure the required OpenCV DLLs (e.g., `opencv_worldXXX.dll`) are available in your system `PATH` or next to your `.exe` at runtime.
-
-### Example Configuration for OpenCV
-
-**OS Environment Variables**
-
-- `Path`  
-  Add the following path to your system environment variables:  
-  ```
-  C:\Program Files\opencv\build\x64\vc16\bin
-  ```
-
-**C/C++ Configuration**
-
-- **General > Additional Include Directories**
-  ```
-  C:\Program Files\opencv\build\include
-  ```
-
-**Linker Configuration**
-
-- **General > Additional Library Directories**
-  ```
-  C:\Program Files\opencv\build\x64\vc16\lib
-  ```
-- **Input > Additional Dependencies**  
-  For Debug build:
-  ```
-  opencv_world4100d.lib
-  Gdi32.lib
-  ```
-  For Release build:
-  ```
-  opencv_world4100.lib
-  Gdi32.lib
-  ```
+3. **Setting OS Path environment variables:**  
+   - Add the path to your `opencv\build\x64\vcXX\bin` folder (replace `vcXX` with your Visual Studio version, e.g., `vc16`).
+    ```
+    C:\Program Files\opencv\build\x64\vc16\bin
+    ```
 
 ### Building with Interception Driver
 
-To use keyboard and mouse emulation via Interception:
+To use keyboard and mouse emulation via interception.
 
-1. **Download Interception SDK:**  
-   - Get the [Interception SDK](https://github.com/oblitum/Interception) and extract it.
+1. **Install Interception:**  
+   - Download and install [Interception](https://github.com/oblitum/Interception).
 
-2. **Include SDK in Your Project:**  
-   - Add the path to the Interception SDK `include` directory to your project’s **Include Directories**.
-   - Add the path to the Interception SDK `library` directory to your **Library Directories**.
-   - In **Linker > Input > Additional Dependencies**, add `interception.lib`.
+2. **Configure Visual Studio:**  
+   - Open your project in Visual Studio.
+   - Go to **Project > Properties > C/C++ > General**.
+     - **Additional Include Directories:** Add the path to your `Interception\library` folder.
+      ```
+      C:\Interception\library
+      ```
+   - Go to **Linker > General**.
+     - **Additional library directory:** Add the path to your `Interception\library\x64` folder.
+      ```
+      C:\Interception\library\x64
+      ```
+   - Go to **Linker > Input**.
+     - **Additional dependency file:** add `interception.lib`.
 
-3. **Driver Installation:**  
-   - The Interception driver must be installed on your system for runtime use.  
-   - Use the official installer from the [Interception GitHub Releases](https://github.com/oblitum/Interception/releases).
+3. **Add DLLs to your project:**  
+   - From the DLL file properties, go to “General > Item Type >” and select “Copy File”.
 
-4. **Administrator Privileges:**  
-   - Running and installing the Interception driver requires administrator privileges.
+### If build errors occur, please also set the following additional dependencies
 
-### Example Configuration for Interception Driver
+**Linker > Input**
 
-**C/C++ Configuration**
-
-- **Additional Include Directories**
+- **Additional dependency file**  
   ```
-  C:\Interception\library
+  Gdi32.lib
   ```
-
-**Linker Configuration**
-
-- **Additional Library Directories**
-  ```
-  C:\Interception\library\x64
-  ```
-- **Input > Additional Dependencies**
-  ```
-  interception.lib
-  ```
-
-**Adding the DLL to the Project**
-
-- Add the Interception DLL to your project.  
-  In Visual Studio, right-click the DLL in Solution Explorer, select **Properties > General > Item Type**, and choose `"Copy if newer"` (or `"Copy"` depending on your Visual Studio version) to ensure the DLL is copied to your output directory on build.
 
 ## Author
 [![Twitter: ReekerZrZr](https://img.shields.io/twitter/follow/ReekerZrZr?style=social)](https://x.com/ReekerZrZr)
+
+## Licence
+[MIT](https://opensource.org/licenses/mit-license.php)
