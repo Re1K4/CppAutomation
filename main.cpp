@@ -1,5 +1,4 @@
-﻿#include "resource.h"
-#include "Event.h"
+﻿#include "Event.h"
 #include "Timer.h"
 #include "Logger.h"
 #include "SharedVariable.h"
@@ -45,7 +44,7 @@ int main() {
     MultiEvent mlev_obj(mlev1, mlev2, mlev3);
 
     //TemplateMatching (Find the notepad application icon on the desktop)
-    TemplateMatching test(IDB_PNG1);
+    TemplateMatching test("asset/images/notepad_icon.png");
 
     Logger::info("Main Loop Start");
     while (!(SharedVariable::exit_loop)) {

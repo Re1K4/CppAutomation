@@ -9,10 +9,7 @@
 class TemplateMatching {
 public:
     cv::Rect lastMatchResult;
-    /* Retrieve image files from directory Path
-    TemplateMatching(const std::string& filename);
-    */
-    TemplateMatching(int resourceId);
+    TemplateMatching(const std::string& relativePath);
     ~TemplateMatching();
     bool match(const cv::Rect& region, double fuzzy);
     bool matchBinary(const cv::Rect& region, double fuzzy);

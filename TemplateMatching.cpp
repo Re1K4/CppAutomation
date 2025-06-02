@@ -1,19 +1,21 @@
 #include "TemplateMatching.h"
 
-/* Retrieve image files from directory Path
-TemplateMatching::TemplateMatching(const std::string& filename) {
-    image = cv::imread(filename, cv::IMREAD_COLOR);
-    if (image.empty()) {
-        std::exit(EXIT_FAILURE);
-    }
+std::string getExecutableDir() {
+    char buffer[MAX_PATH];
+    GetModuleFileNameA(nullptr, buffer, MAX_PATH);
+    std::string fullPath(buffer);
+    size_t pos = fullPath.find_last_of("\\/");
+    return (pos == std::string::npos) ? "" : fullPath.substr(0, pos);
 }
-*/
 
-TemplateMatching::TemplateMatching(int resourceId) {
-    image = loadResourceData(resourceId);
+TemplateMatching::TemplateMatching(const std::string& relativePath) {
+    std::string exeDir = getExecutableDir();
+    std::string fullPath = exeDir + "\\" + relativePath;
+
+    image = cv::imread(fullPath, cv::IMREAD_COLOR);
     hScreenDC = GetDC(nullptr);
     if (image.empty()) {
-        throw std::runtime_error("Failed to load template image from resource.");
+        throw std::runtime_error("Failed to load template image from file: " + fullPath);
     }
 }
 
