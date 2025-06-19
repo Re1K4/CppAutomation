@@ -1,9 +1,9 @@
 # Name 
-CppGameBot
+CppAutomation
 
 ## Overview
-C++ template for gamebot using OpenCV library.
-It is very fast and can automate most games.
+C++ template for automation with OpenCV library. 
+It is very fast and can automate most operations.
 
 ## Requirement
 OpenCV - [OpenCV Releases](https://opencv.org/releases/)
