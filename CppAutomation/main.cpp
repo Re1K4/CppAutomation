@@ -28,7 +28,7 @@ int main() {
     control.changeCtrl(10);
 
     //Window initialization test
-    WindowInit("無題 - メモ帳");
+    WindowInit("notepad.exe");
 
     //CheckEscKey Test(ESC key to force thread termination)
     Logger::info("ESC Check Thread On");
@@ -48,6 +48,7 @@ int main() {
 
     Logger::info("Main Loop Start");
     while (!(SharedVariable::exit_loop)) {
+
         if (ev.checkColor()) {
             Logger::info("checkColor OK");
         } else {
@@ -88,13 +89,10 @@ int main() {
         Emulate::sleep(1000);
     }
 
-    WindowInit("無題 - メモ帳");
     Logger::info("Test Emulate Keyboard");
-
     Action::test();
 
     Logger::info("Test Emulate Mouse");
-    
     Emulate::moveMouse(1, 1);
     Emulate::sleep(1000);
     Emulate::moveMouse(SharedVariable::window_center_x,SharedVariable::window_center_y);
