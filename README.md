@@ -11,6 +11,3 @@ The initial main.cpp contains test code for each function.
 
 ## Author
 [![Twitter: ReekerZrZr](https://img.shields.io/twitter/follow/ReekerZrZr?style=social)](https://x.com/ReekerZrZr)
-
-## Licence
-[MIT](https://opensource.org/licenses/mit-license.php)
