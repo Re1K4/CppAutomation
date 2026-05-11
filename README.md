@@ -7,7 +7,8 @@ It is very fast and can automate most operations.
 
 ## Usage
 This is a template, and the process must be written and built in the while loop in main.cpp according to the process you wish to automate.
-The initial main.cpp contains test code for each function.
+The initial main.cpp contains test sample code for each function.
+(!) Please launch notepad.exe before running the test.
 
 ### Definition and method calls
 
