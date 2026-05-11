@@ -48,47 +48,63 @@ int main() {
 
     Logger::info("Main Loop Start");
     while (!(SharedVariable::exit_loop)) {
+        //Build an automated process by transitioning through loop states while changing the values of the control class
+        if (control.NOW == 10) {
+            if (ev.checkColor()) {
+                Logger::info("checkColor OK");
+            }
+            else {
+                Logger::info("checkColor NG");
+            }
 
-        if (ev.checkColor()) {
-            Logger::info("checkColor OK");
-        } else {
-            Logger::info("checkColor NG");
+            if (ev.checkRGB()) {
+                Logger::info("checkRGB OK");
+            }
+            else {
+                Logger::info("checkRGB NG");
+            }
+
+            if (mlev_obj.checkColorMulti(ALL_MATCH, true)) {
+                Logger::info("Multi checkColor OK");
+            }
+            else {
+                Logger::info("Multi checkColor NG");
+            }
+
+            if (mlev_obj.checkRGBMulti(ALL_MATCH, true)) {
+                Logger::info("Multi checkRGB OK");
+            }
+            else {
+                Logger::info("Multi checkRGB NG");
+            }
+
+            if (test.match(cv::Rect(0, 0, 1920, 1080), 0.9)) {
+                Logger::info("TemplateMatching is True");
+            }
+            else {
+                Logger::info("TemplateMatching is False");
+            }
+
+            if (test.matchBinary(cv::Rect(0, 0, 1920, 1080), 0.9)) {
+                Logger::info("TemplateMatching(Binary) is True");
+            }
+            else {
+                Logger::info("TemplateMatching(Binary) is False");
+            }
         }
 
-        if (ev.checkRGB()) {
-            Logger::info("checkRGB OK");
-        } else {
-            Logger::info("checkRGB NG");
+        if (tm.distance() > 5) {
+            control.changeCtrl(11);
         }
 
-        if (mlev_obj.checkColorMulti(ALL_MATCH,true)) {
-            Logger::info("Multi checkColor OK");
-        } else {
-            Logger::info("Multi checkColor NG");
-        }
-
-        if (mlev_obj.checkRGBMulti(ALL_MATCH,true)) {
-            Logger::info("Multi checkRGB OK");
-        }
-        else {
-            Logger::info("Multi checkRGB NG");
-        }
-
-        if (test.match(cv::Rect(0, 0, 1920, 1080), 0.9)) {
-            Logger::info("TemplateMatching is True");
-        } else {
-            Logger::info("TemplateMatching is False");
-        }
-
-        if (test.matchBinary(cv::Rect(0, 0, 1920, 1080), 0.9)) {
-            Logger::info("TemplateMatching(Binary) is True");
-        } else {
-            Logger::info("TemplateMatching(Binary) is False");
+        if (control.NOW == 11) {
+            break;
         }
 
         Emulate::sleep(1000);
     }
 
+    //If you want to perform multiple operations, define them in Action.h/Action.cpp.
     Logger::info("Test Emulate Keyboard");
     Action::test();
 
@@ -106,7 +122,7 @@ int main() {
         Emulate::sleep(100);
     }
 
-    Logger::info("Main Loop End");
+    Logger::info("Press the ECS key to end the test.");
     if (CheckEscKey_Thread.joinable()) CheckEscKey_Thread.join();
 
     return 0;
