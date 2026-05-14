@@ -85,6 +85,3 @@ WindowInit("notepad.exe");
 ```
 - Pass the target application executable name as `const char*`.
 - Run this before event checks or mouse/keyboard automation so shared window information is initialized.
-
-## Author
-[![Twitter: ReekerZrZr](https://img.shields.io/twitter/follow/ReekerZrZr?style=social)](https://x.com/ReekerZrZr)
